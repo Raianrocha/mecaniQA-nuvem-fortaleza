@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: iot-simulator
+  labels:
+    app: iot-simulator
+spec:
+  type: ClusterIP
+  selector:
+    app: iot-simulator
+  ports:
+    - name: metrics
+      port: 8000
+      targetPort: metrics
