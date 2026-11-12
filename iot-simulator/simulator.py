@@ -21,6 +21,15 @@ ELECTRICAL_FAULTS = Counter(
     "mecaniqa_iot_electrical_faults_total",
     "Electrical faults detected by the simulator.",
 )
+DIAGNOSTICS_SUCCESS = Counter(
+    "mecaniqa_iot_diagnostics_success_total",
+    "Successfully completed simulated diagnostics.",
+)
+DIAGNOSTICS_ERRORS = Counter(
+    "mecaniqa_iot_diagnostics_errors_total",
+    "Simulated diagnostics completed with an error.",
+)
+
 ACTIVE_SENSORS = Gauge(
     "mecaniqa_iot_active_sensors",
     "Number of sensors currently sending readings.",
@@ -53,6 +62,19 @@ def simulate_batch() -> None:
     READINGS.labels(sensor_type="engine_temperature").inc(temperature_readings)
     READINGS.labels(sensor_type="electrical").inc(electrical_readings)
     ELECTRICAL_FAULTS.inc(detected_faults)
+    # Simula o resultado de um diagnostico por leitura processada.
+    # A taxa de erro e configuravel e nao representa falhas reais.
+    error_probability = float(os.getenv("DIAGNOSTIC_ERROR_RATE", "0.02"))
+    if not 0.0 <= error_probability <= 1.0:
+        raise ValueError("DIAGNOSTIC_ERROR_RATE must be between 0 and 1")
+
+    simulated_errors = sum(
+        random.random() < error_probability
+        for _ in range(READINGS_PER_SECOND)
+    )
+    DIAGNOSTICS_ERRORS.inc(simulated_errors)
+    DIAGNOSTICS_SUCCESS.inc(READINGS_PER_SECOND - simulated_errors)
+
     ACTIVE_SENSORS.set(SENSOR_COUNT)
     PROCESSING_TIME.observe(time.perf_counter() - started_at)
 
