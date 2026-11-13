@@ -2,6 +2,7 @@ import json
 import math
 import os
 import random
+import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from time import perf_counter
 
@@ -43,6 +44,15 @@ ELECTRICAL_FAULTS = Counter(
     "mecaniqa_iot_electrical_faults_total",
     "Electrical faults reported by accepted electrical sensor readings.",
 )
+DIAGNOSTICS_SUCCESS = Counter(
+    "mecaniqa_iot_diagnostics_success_total",
+    "Successfully completed simulated diagnostics.",
+)
+DIAGNOSTICS_ERRORS = Counter(
+    "mecaniqa_iot_diagnostics_errors_total",
+    "Simulated diagnostics completed with an error.",
+)
+
 ACTIVE_SENSORS = Gauge(
     "mecaniqa_iot_active_sensors",
     "Number of sensors represented by the simulator.",
@@ -103,6 +113,7 @@ class ReadingHandler(BaseHTTPRequestHandler):
 
             if random.random() < SIMULATED_ERROR_RATE:
                 self._record_error()
+                DIAGNOSTICS_ERRORS.inc()
                 self.send_error(503, "Simulated processing failure")
                 return
 
@@ -114,6 +125,7 @@ class ReadingHandler(BaseHTTPRequestHandler):
 
             READINGS.labels(sensor_type=sensor_type).inc()
             READING_RESULTS.labels(result="success").inc()
+            DIAGNOSTICS_SUCCESS.inc()
             if sensor_type == "engine_temperature":
                 ENGINE_TEMPERATURE.set(value)
             elif fault_detected:

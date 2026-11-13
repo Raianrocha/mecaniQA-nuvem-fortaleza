@@ -10,4 +10,4 @@ COPY simulator.py load_test.py ./
 EXPOSE 8080 8000
 USER 10001:10001
 
-CMD ["python", "simulator.py"]
+CMD ["python", "-u", "simulator.py"]
