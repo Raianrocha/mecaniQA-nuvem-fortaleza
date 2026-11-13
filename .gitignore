@@ -28,3 +28,8 @@ replay_pid*
 *.tfstate.*
 crash.log
 crash.*.log
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]

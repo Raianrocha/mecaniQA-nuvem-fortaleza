@@ -35,64 +35,11 @@ Os serviços se comunicam pela rede interna `mecaniqa`; a API deve usar `mysql:3
 
 ## Relatório da Sessão: Observabilidade e IoT
 
-### Board do brainstorming
+O piloto instrumenta o serviço Python com `prometheus-client`, coleta métricas por pod com Prometheus e provisiona no Grafana um dashboard com quatro painéis (CPU, memória, erros e sucessos). O manifesto HPA usa a Metrics API do Kubernetes para CPU/memória; quatro regras de alertas cobrem CPU, memória, taxa de erros e latência p95.
 
-**Fatos**
+As decisões do brainstorming, thresholds iniciais, runbooks, definições propostas de SLI/SLO/SLA/RTO/RPO e o roteiro completo para Docker/Kubernetes local estão em [docs/observabilidade-e-continuidade.md](./docs/observabilidade-e-continuidade.md). Com o contexto local `docker-desktop`, imagem construída e Metrics API ativa, execute `.\scripts\run-stress-test.ps1` para gerar logs datados em `evidencias/`.
 
-- Verificar apenas se um servidor está ligado não revela saturação, erros, latência ou perda de leituras durante os picos das 08:00 e 17:00.
-- Observabilidade combina métricas, logs e traces para relacionar o que a aplicação está fazendo com a experiência e os sintomas operacionais.
-- O simulador deste piloto expõe métricas Prometheus em `/metrics`: leituras por tipo, falhas elétricas, sensores ativos, temperatura mais recente e duração de processamento dos lotes.
-- O Prometheus coleta (scrape) esse endpoint periodicamente e armazena séries temporais. O Grafana consulta o Prometheus como fonte de dados e monta painéis/alertas com PromQL; ele não coleta as métricas diretamente do simulador.
-
-**Questões para a próxima rodada**
-
-- Qual volume de pico, atraso máximo de ingestão e janela de retenção são requisitos reais de produção?
-- Quais limites de temperatura, taxa de falhas e latência devem disparar alertas, e quem recebe cada alerta?
-- O cluster de produção exigirá alta disponibilidade, armazenamento persistente e autenticação para Prometheus/Grafana?
-
-**Ideias e decisão técnica**
-
-- Adotar o padrão de métricas RED (taxa, erros e duração) junto a indicadores de domínio IoT, começando por coleta a cada 15 segundos.
-- Usar rótulos de baixa cardinalidade, como tipo de sensor; não adicionar identificadores únicos de sensores às séries Prometheus.
-- Manter Prometheus e simulador acessíveis internamente por Services `ClusterIP`; disponibilizar a interface de consulta localmente com `kubectl port-forward`.
-- Tratar o simulador como carga de demonstração, não como teste de capacidade: o dimensionamento final deve ser validado com o volume e os limites de produção.
-
-### Decisão direta: desafio do tráfego
-
-Uma verificação de disponibilidade pode continuar verde enquanto o serviço acumula fila, excede CPU/memória, perde mensagens ou responde lentamente. Nos picos, acompanhar taxa de leituras, falhas, latência de processamento, uso de recursos e disponibilidade permite detectar degradação antes de uma interrupção e localizar o componente responsável. Métricas agregadas também permitem comparar os períodos de pico com o comportamento normal.
-
-### Piloto Kubernetes
-
-O repositório original não continha o simulador Python mencionado no enunciado. Foi criado `iot-simulator/` como carga-base independente, com contadores, gauges e histograma usando `prometheus-client`.
-
-Construa a imagem em um ambiente que o cluster Kubernetes consiga acessar:
-
-```bash
-docker build -t mecaniqa-iot-simulator:latest ./iot-simulator
-```
-
-Em clusters locais, carregue a imagem no runtime do cluster quando Docker não for compartilhado automaticamente. Em clusters remotos, publique a imagem em um registry e ajuste `image` em `k8s/iot-simulator-deployment.yaml`.
-
-Implante os recursos do piloto:
-
-```bash
-kubectl apply -f k8s/iot-simulator-deployment.yaml
-kubectl apply -f k8s/iot-simulator-service.yaml
-kubectl apply -f k8s/prometheus-config.yaml
-kubectl apply -f k8s/prometheus-deployment.yaml
-kubectl apply -f k8s/prometheus-service.yaml
-kubectl get pods,services
-```
-
-Abra Prometheus localmente e confirme `mecaniqa-iot` como `UP` em **Status > Targets**:
-
-```bash
-kubectl port-forward service/prometheus 9090:9090
-```
-
-Acesse `http://localhost:9090`. Exemplos de consultas PromQL: `rate(mecaniqa_iot_readings_total[5m])`, `rate(mecaniqa_iot_electrical_faults_total[5m])` e `histogram_quantile(0.95, sum by (le) (rate(mecaniqa_iot_batch_processing_seconds_bucket[5m])))`.
-
-O armazenamento configurado neste piloto usa `emptyDir` e é perdido quando o pod é recriado. Para produção, substituir por volume persistente e definir capacidade, autenticação, alertas e política de retenção conforme os requisitos do time.
+Os thresholds e metas são hipóteses para laboratório: a topologia ainda não demonstra alta disponibilidade, persistência nem recuperação regional, portanto não garante SLA/RTO/RPO de produção.
 
 ## Kubernetes
 

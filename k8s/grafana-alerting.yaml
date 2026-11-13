@@ -1,0 +1,113 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-alerting
+data:
+  rules.yaml: |
+    apiVersion: 1
+    groups:
+      - orgId: 1
+        name: mecaniqa-operational-alerts
+        folder: MecaniQA
+        interval: 1m
+        rules:
+          - uid: mecaniqa-iot-cpu-high
+            title: IoT simulator CPU above 80% of request
+            condition: A
+            data:
+              - refId: A
+                relativeTimeRange:
+                  from: 300
+                  to: 0
+                datasourceUid: prometheus
+                model:
+                  editorMode: code
+                  expr: sum by (pod) (rate(container_cpu_usage_seconds_total{namespace="default",pod=~"iot-simulator-.*",container="simulator"}[5m])) > 0.08
+                  instant: true
+                  intervalMs: 1000
+                  maxDataPoints: 43200
+                  range: false
+                  refId: A
+            noDataState: OK
+            execErrState: Error
+            for: 5m
+            annotations:
+              summary: "CPU for an IoT simulator pod exceeded 80% of its 100m request for five minutes."
+              description: "Check HPA events, pod throttling, and incoming request volume before changing limits."
+            labels:
+              severity: warning
+          - uid: mecaniqa-iot-memory-high
+            title: IoT simulator memory above 85% of request
+            condition: A
+            data:
+              - refId: A
+                relativeTimeRange:
+                  from: 300
+                  to: 0
+                datasourceUid: prometheus
+                model:
+                  editorMode: code
+                  expr: sum by (pod) (container_memory_working_set_bytes{namespace="default",pod=~"iot-simulator-.*",container="simulator"}) > 57042534
+                  instant: true
+                  intervalMs: 1000
+                  maxDataPoints: 43200
+                  range: false
+                  refId: A
+            noDataState: OK
+            execErrState: Error
+            for: 5m
+            annotations:
+              summary: "Memory for an IoT simulator pod exceeded 85% of its 64Mi request for five minutes."
+              description: "Inspect working set, recent deployments, and OOMKilled events; do not raise limits without checking node capacity."
+            labels:
+              severity: warning
+          - uid: mecaniqa-iot-error-ratio
+            title: IoT reading error ratio above 5%
+            condition: A
+            data:
+              - refId: A
+                relativeTimeRange:
+                  from: 300
+                  to: 0
+                datasourceUid: prometheus
+                model:
+                  editorMode: code
+                  expr: (sum(rate(mecaniqa_iot_reading_results_total{result="error"}[5m])) / clamp_min(sum(rate(mecaniqa_iot_reading_results_total{result=~"success|error"}[5m])), 1)) > 0.05 and sum(rate(mecaniqa_iot_reading_results_total{result=~"success|error"}[5m])) > 100
+                  instant: true
+                  intervalMs: 1000
+                  maxDataPoints: 43200
+                  range: false
+                  refId: A
+            noDataState: OK
+            execErrState: Error
+            for: 5m
+            annotations:
+              summary: "More than 5% of IoT readings failed for five minutes, with at least 100 readings per second."
+              description: "Check application logs, dependency health, and the error result counter before replaying affected readings."
+            labels:
+              severity: warning
+          - uid: mecaniqa-iot-processing-latency
+            title: IoT reading p95 processing latency above 800ms
+            condition: A
+            data:
+              - refId: A
+                relativeTimeRange:
+                  from: 300
+                  to: 0
+                datasourceUid: prometheus
+                model:
+                  editorMode: code
+                  expr: histogram_quantile(0.95, sum by (le) (rate(mecaniqa_iot_batch_processing_seconds_bucket[5m]))) > 0.8
+                  instant: true
+                  intervalMs: 1000
+                  maxDataPoints: 43200
+                  range: false
+                  refId: A
+            noDataState: OK
+            execErrState: Error
+            for: 5m
+            annotations:
+              summary: "The p95 processing duration for an IoT reading exceeded 800ms for five minutes."
+              description: "Inspect request volume, CPU throttling, and HPA readiness; compare against the measured service objective."
+            labels:
+              severity: warning

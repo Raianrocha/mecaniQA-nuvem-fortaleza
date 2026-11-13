@@ -9,6 +9,9 @@ spec:
   selector:
     app: iot-simulator
   ports:
+    - name: http
+      port: 8080
+      targetPort: http
     - name: metrics
       port: 8000
       targetPort: metrics

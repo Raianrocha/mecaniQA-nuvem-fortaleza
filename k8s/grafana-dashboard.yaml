@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboard
+data:
+  dashboards.yaml: |
+    apiVersion: 1
+    providers:
+      - name: MecaniQA
+        orgId: 1
+        folder: MecaniQA
+        type: file
+        disableDeletion: true
+        options:
+          path: /var/lib/grafana/dashboards
+  mecaniqa-golden-signals.json: |
+    {
+      "title": "MecaniQA Golden Signals",
+      "uid": "mecaniqa-golden-signals",
+      "schemaVersion": 39,
+      "version": 1,
+      "refresh": "15s",
+      "time": {"from": "now-1h", "to": "now"},
+      "panels": [
+        {"id": 1, "title": "CPU usage (cores)", "type": "timeseries", "datasource": {"type": "prometheus", "uid": "prometheus"}, "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0}, "targets": [{"expr": "sum by (pod) (rate(container_cpu_usage_seconds_total{namespace=\"default\",pod=~\"iot-simulator-.*\",container=\"simulator\"}[5m]))", "legendFormat": "{{pod}}", "refId": "A"}]},
+        {"id": 2, "title": "Memory usage (bytes)", "type": "timeseries", "datasource": {"type": "prometheus", "uid": "prometheus"}, "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0}, "targets": [{"expr": "sum by (pod) (container_memory_working_set_bytes{namespace=\"default\",pod=~\"iot-simulator-.*\",container=\"simulator\"})", "legendFormat": "{{pod}}", "refId": "A"}]},
+        {"id": 3, "title": "Application error rate (%)", "type": "timeseries", "datasource": {"type": "prometheus", "uid": "prometheus"}, "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8}, "targets": [{"expr": "100 * sum(rate(mecaniqa_iot_reading_results_total{result=\"error\"}[5m])) / clamp_min(sum(rate(mecaniqa_iot_reading_results_total{result=~\"success|error\"}[5m])), 1)", "legendFormat": "Errors (%)", "refId": "A"}]},
+        {"id": 4, "title": "Application success rate (%)", "type": "timeseries", "datasource": {"type": "prometheus", "uid": "prometheus"}, "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8}, "targets": [{"expr": "100 * sum(rate(mecaniqa_iot_reading_results_total{result=\"success\"}[5m])) / clamp_min(sum(rate(mecaniqa_iot_reading_results_total{result=~\"success|error\"}[5m])), 1)", "legendFormat": "Success (%)", "refId": "A"}]}
+      ]
+    }

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: iot-simulator
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: iot-simulator
@@ -19,25 +19,35 @@ spec:
           image: mecaniqa-iot-simulator:latest
           imagePullPolicy: IfNotPresent
           ports:
+            - name: http
+              containerPort: 8080
             - name: metrics
               containerPort: 8000
           env:
+            - name: API_PORT
+              value: "8080"
             - name: METRICS_PORT
               value: "8000"
-            - name: READINGS_PER_SECOND
-              value: "1000"
             - name: SENSOR_COUNT
               value: "5000"
+            - name: CPU_WORK_ITERATIONS
+              value: "100"
+            - name: MEMORY_WORK_MB
+              value: "0"
+            - name: PROCESSING_DELAY_SECONDS
+              value: "0"
+            - name: SIMULATED_ERROR_RATE
+              value: "0"
           readinessProbe:
             httpGet:
-              path: /metrics
-              port: metrics
+              path: /healthz
+              port: http
             initialDelaySeconds: 3
             periodSeconds: 10
           livenessProbe:
             httpGet:
-              path: /metrics
-              port: metrics
+              path: /healthz
+              port: http
             initialDelaySeconds: 10
             periodSeconds: 20
           resources:

@@ -1,0 +1,7 @@
+NAME                             READY   STATUS    RESTARTS   AGE    IP            NODE                    NOMINATED NODE   READINESS GATES
+grafana-7db44bf4cf-6t82v         1/1     Running   0          103m   10.244.0.14   desktop-control-plane   <none>           <none>
+iot-load-cpu-memory-errors       0/1     Error     0          26m    10.244.0.72   desktop-control-plane   <none>           <none>
+iot-load-latency                 0/1     Error     0          18m    10.244.0.83   desktop-control-plane   <none>           <none>
+iot-simulator-586c6d9676-bz9wg   1/1     Running   0          10m    10.244.0.88   desktop-control-plane   <none>           <none>
+iot-simulator-586c6d9676-pfjv9   1/1     Running   0          10m    10.244.0.85   desktop-control-plane   <none>           <none>
+prometheus-7d684c9954-g4wqb      1/1     Running   0          103m   10.244.0.13   desktop-control-plane   <none>           <none>

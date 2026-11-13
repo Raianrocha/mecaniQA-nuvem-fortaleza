@@ -5,9 +5,9 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY simulator.py .
+COPY simulator.py load_test.py ./
 
-EXPOSE 8000
+EXPOSE 8080 8000
 USER 10001:10001
 
 CMD ["python", "simulator.py"]
