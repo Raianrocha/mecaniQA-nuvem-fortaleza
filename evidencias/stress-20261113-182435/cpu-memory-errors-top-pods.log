@@ -1,0 +1,349 @@
+[2026-11-13T18:25:00.6854974-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-6f47b69dbc-4hddc   1m           13Mi
+iot-simulator-6f47b69dbc-9w6p8   1m           15Mi
+iot-simulator-778469c454-7psl6   15m          13Mi
+iot-simulator-778469c454-8cklx   26m          13Mi
+[2026-11-13T18:25:11.1737492-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-6f47b69dbc-4hddc   1m           13Mi
+iot-simulator-6f47b69dbc-9w6p8   1m           15Mi
+iot-simulator-778469c454-7psl6   15m          13Mi
+iot-simulator-778469c454-8cklx   26m          13Mi
+[2026-11-13T18:25:21.6812265-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-6f47b69dbc-4hddc   1m           13Mi
+iot-simulator-778469c454-7psl6   255m         15Mi
+iot-simulator-778469c454-8cklx   104m         15Mi
+[2026-11-13T18:25:32.1507608-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-7psl6   460m         15Mi
+iot-simulator-778469c454-8cklx   488m         15Mi
+iot-simulator-778469c454-lmcmt   61m          15Mi
+iot-simulator-778469c454-rlphz   21m          13Mi
+[2026-11-13T18:25:42.8307165-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-7psl6   460m         15Mi
+iot-simulator-778469c454-8cklx   488m         15Mi
+iot-simulator-778469c454-lmcmt   61m          15Mi
+iot-simulator-778469c454-rlphz   21m          13Mi
+[2026-11-13T18:25:53.3199312-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-7psl6   460m         15Mi
+iot-simulator-778469c454-8cklx   500m         15Mi
+iot-simulator-778469c454-lmcmt   108m         14Mi
+iot-simulator-778469c454-rlphz   21m          13Mi
+[2026-11-13T18:26:03.7742777-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-7psl6   283m         14Mi
+iot-simulator-778469c454-8cklx   247m         14Mi
+iot-simulator-778469c454-lmcmt   251m         14Mi
+iot-simulator-778469c454-rlphz   246m         14Mi
+[2026-11-13T18:26:14.4776095-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-7psl6   283m         14Mi
+iot-simulator-778469c454-8cklx   247m         14Mi
+iot-simulator-778469c454-lmcmt   251m         14Mi
+iot-simulator-778469c454-rlphz   246m         14Mi
+[2026-11-13T18:26:24.9903287-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-7psl6   231m         14Mi
+iot-simulator-778469c454-8cklx   259m         14Mi
+iot-simulator-778469c454-lmcmt   229m         14Mi
+iot-simulator-778469c454-rlphz   220m         14Mi
+[2026-11-13T18:26:35.5111821-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   55m          14Mi
+iot-simulator-778469c454-7psl6   222m         14Mi
+iot-simulator-778469c454-8cklx   259m         14Mi
+iot-simulator-778469c454-8z8kc   24m          13Mi
+iot-simulator-778469c454-lmcmt   232m         15Mi
+iot-simulator-778469c454-rlphz   216m         14Mi
+[2026-11-13T18:26:46.2706864-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   171m         14Mi
+iot-simulator-778469c454-7psl6   196m         14Mi
+iot-simulator-778469c454-8cklx   197m         14Mi
+iot-simulator-778469c454-8z8kc   173m         14Mi
+iot-simulator-778469c454-lmcmt   173m         14Mi
+iot-simulator-778469c454-rlphz   206m         14Mi
+[2026-11-13T18:26:56.8229730-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   171m         14Mi
+iot-simulator-778469c454-7psl6   196m         14Mi
+iot-simulator-778469c454-8cklx   197m         14Mi
+iot-simulator-778469c454-8z8kc   173m         14Mi
+iot-simulator-778469c454-lmcmt   173m         14Mi
+iot-simulator-778469c454-rlphz   206m         14Mi
+[2026-11-13T18:27:07.2750886-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   174m         14Mi
+iot-simulator-778469c454-7psl6   170m         14Mi
+iot-simulator-778469c454-8cklx   149m         14Mi
+iot-simulator-778469c454-8z8kc   154m         14Mi
+iot-simulator-778469c454-lmcmt   173m         14Mi
+iot-simulator-778469c454-rlphz   159m         15Mi
+[2026-11-13T18:27:17.9584895-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   159m         14Mi
+iot-simulator-778469c454-7psl6   161m         14Mi
+iot-simulator-778469c454-8cklx   164m         14Mi
+iot-simulator-778469c454-8z8kc   162m         14Mi
+iot-simulator-778469c454-lmcmt   172m         14Mi
+iot-simulator-778469c454-rlphz   165m         14Mi
+[2026-11-13T18:27:28.4675545-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   159m         14Mi
+iot-simulator-778469c454-7psl6   161m         14Mi
+iot-simulator-778469c454-8cklx   164m         14Mi
+iot-simulator-778469c454-8z8kc   162m         14Mi
+iot-simulator-778469c454-lmcmt   172m         14Mi
+iot-simulator-778469c454-rlphz   165m         14Mi
+[2026-11-13T18:27:38.9331061-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   164m         14Mi
+iot-simulator-778469c454-7psl6   144m         14Mi
+iot-simulator-778469c454-8cklx   138m         14Mi
+iot-simulator-778469c454-8z8kc   149m         14Mi
+iot-simulator-778469c454-lmcmt   172m         14Mi
+iot-simulator-778469c454-rlphz   162m         15Mi
+[2026-11-13T18:27:49.5980998-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   159m         14Mi
+iot-simulator-778469c454-7psl6   144m         14Mi
+iot-simulator-778469c454-8cklx   156m         14Mi
+iot-simulator-778469c454-8z8kc   166m         14Mi
+iot-simulator-778469c454-lmcmt   166m         14Mi
+iot-simulator-778469c454-rlphz   162m         15Mi
+[2026-11-13T18:28:00.0799616-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   159m         14Mi
+iot-simulator-778469c454-7psl6   144m         14Mi
+iot-simulator-778469c454-8cklx   156m         14Mi
+iot-simulator-778469c454-8z8kc   166m         14Mi
+iot-simulator-778469c454-lmcmt   166m         14Mi
+iot-simulator-778469c454-rlphz   162m         15Mi
+[2026-11-13T18:28:10.5526261-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   161m         14Mi
+iot-simulator-778469c454-7psl6   152m         14Mi
+iot-simulator-778469c454-8cklx   162m         15Mi
+iot-simulator-778469c454-8z8kc   155m         14Mi
+iot-simulator-778469c454-lmcmt   144m         14Mi
+iot-simulator-778469c454-rlphz   152m         14Mi
+[2026-11-13T18:28:21.2812743-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   139m         14Mi
+iot-simulator-778469c454-7psl6   156m         14Mi
+iot-simulator-778469c454-8cklx   169m         14Mi
+iot-simulator-778469c454-8z8kc   166m         14Mi
+iot-simulator-778469c454-lmcmt   147m         14Mi
+iot-simulator-778469c454-rlphz   168m         15Mi
+[2026-11-13T18:28:31.7988727-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   149m         14Mi
+iot-simulator-778469c454-7psl6   156m         14Mi
+iot-simulator-778469c454-8cklx   169m         14Mi
+iot-simulator-778469c454-8z8kc   163m         14Mi
+iot-simulator-778469c454-lmcmt   167m         14Mi
+iot-simulator-778469c454-rlphz   175m         14Mi
+[2026-11-13T18:28:42.2604821-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   149m         14Mi
+iot-simulator-778469c454-7psl6   156m         14Mi
+iot-simulator-778469c454-8cklx   169m         14Mi
+iot-simulator-778469c454-8z8kc   163m         14Mi
+iot-simulator-778469c454-lmcmt   167m         14Mi
+iot-simulator-778469c454-rlphz   175m         14Mi
+[2026-11-13T18:28:52.9907716-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   160m         14Mi
+iot-simulator-778469c454-7psl6   169m         14Mi
+iot-simulator-778469c454-8cklx   163m         14Mi
+iot-simulator-778469c454-8z8kc   156m         13Mi
+iot-simulator-778469c454-lmcmt   155m         14Mi
+iot-simulator-778469c454-rlphz   153m         14Mi
+[2026-11-13T18:29:03.4756713-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   163m         14Mi
+iot-simulator-778469c454-7psl6   174m         14Mi
+iot-simulator-778469c454-8cklx   146m         14Mi
+iot-simulator-778469c454-8z8kc   154m         14Mi
+iot-simulator-778469c454-lmcmt   150m         14Mi
+iot-simulator-778469c454-rlphz   156m         14Mi
+[2026-11-13T18:29:13.9322171-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   163m         14Mi
+iot-simulator-778469c454-7psl6   174m         14Mi
+iot-simulator-778469c454-8cklx   146m         14Mi
+iot-simulator-778469c454-8z8kc   154m         14Mi
+iot-simulator-778469c454-lmcmt   150m         14Mi
+iot-simulator-778469c454-rlphz   156m         14Mi
+[2026-11-13T18:29:24.6070238-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   186m         14Mi
+iot-simulator-778469c454-7psl6   171m         14Mi
+iot-simulator-778469c454-8cklx   155m         14Mi
+iot-simulator-778469c454-8z8kc   172m         14Mi
+iot-simulator-778469c454-lmcmt   159m         14Mi
+iot-simulator-778469c454-rlphz   184m         14Mi
+[2026-11-13T18:29:35.0968355-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   186m         14Mi
+iot-simulator-778469c454-7psl6   166m         15Mi
+iot-simulator-778469c454-8cklx   150m         14Mi
+iot-simulator-778469c454-8z8kc   161m         14Mi
+iot-simulator-778469c454-lmcmt   168m         14Mi
+iot-simulator-778469c454-rlphz   162m         14Mi
+[2026-11-13T18:29:45.5646380-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   186m         14Mi
+iot-simulator-778469c454-7psl6   166m         15Mi
+iot-simulator-778469c454-8cklx   150m         14Mi
+iot-simulator-778469c454-8z8kc   161m         14Mi
+iot-simulator-778469c454-lmcmt   168m         14Mi
+iot-simulator-778469c454-rlphz   162m         14Mi
+[2026-11-13T18:29:56.2744836-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   163m         14Mi
+iot-simulator-778469c454-7psl6   162m         14Mi
+iot-simulator-778469c454-8cklx   148m         14Mi
+iot-simulator-778469c454-8z8kc   162m         14Mi
+iot-simulator-778469c454-lmcmt   169m         14Mi
+iot-simulator-778469c454-rlphz   164m         14Mi
+[2026-11-13T18:30:06.7907768-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   152m         14Mi
+iot-simulator-778469c454-7psl6   162m         14Mi
+iot-simulator-778469c454-8cklx   157m         14Mi
+iot-simulator-778469c454-8z8kc   150m         14Mi
+iot-simulator-778469c454-lmcmt   163m         14Mi
+iot-simulator-778469c454-rlphz   164m         14Mi
+[2026-11-13T18:30:17.2741532-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   152m         14Mi
+iot-simulator-778469c454-7psl6   152m         14Mi
+iot-simulator-778469c454-8cklx   162m         14Mi
+iot-simulator-778469c454-8z8kc   149m         14Mi
+iot-simulator-778469c454-lmcmt   158m         14Mi
+iot-simulator-778469c454-rlphz   153m         14Mi
+[2026-11-13T18:30:27.9332320-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   152m         14Mi
+iot-simulator-778469c454-7psl6   152m         14Mi
+iot-simulator-778469c454-8cklx   162m         14Mi
+iot-simulator-778469c454-8z8kc   149m         14Mi
+iot-simulator-778469c454-lmcmt   158m         14Mi
+iot-simulator-778469c454-rlphz   153m         14Mi
+[2026-11-13T18:30:38.4134552-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   159m         14Mi
+iot-simulator-778469c454-7psl6   151m         14Mi
+iot-simulator-778469c454-8cklx   144m         14Mi
+iot-simulator-778469c454-8z8kc   148m         14Mi
+iot-simulator-778469c454-lmcmt   149m         14Mi
+iot-simulator-778469c454-rlphz   153m         14Mi
+[2026-11-13T18:30:48.8732846-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   152m         15Mi
+iot-simulator-778469c454-7psl6   169m         14Mi
+iot-simulator-778469c454-8cklx   155m         14Mi
+iot-simulator-778469c454-8z8kc   148m         14Mi
+iot-simulator-778469c454-lmcmt   149m         14Mi
+iot-simulator-778469c454-rlphz   152m         14Mi
+[2026-11-13T18:30:59.6710130-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   152m         15Mi
+iot-simulator-778469c454-7psl6   169m         14Mi
+iot-simulator-778469c454-8cklx   155m         14Mi
+iot-simulator-778469c454-8z8kc   148m         14Mi
+iot-simulator-778469c454-lmcmt   149m         14Mi
+iot-simulator-778469c454-rlphz   152m         14Mi
+[2026-11-13T18:31:10.1810740-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   145m         14Mi
+iot-simulator-778469c454-7psl6   159m         14Mi
+iot-simulator-778469c454-8cklx   152m         15Mi
+iot-simulator-778469c454-8z8kc   152m         14Mi
+iot-simulator-778469c454-lmcmt   157m         14Mi
+iot-simulator-778469c454-rlphz   165m         14Mi
+[2026-11-13T18:31:20.6322867-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   152m         14Mi
+iot-simulator-778469c454-7psl6   159m         14Mi
+iot-simulator-778469c454-8cklx   148m         14Mi
+iot-simulator-778469c454-8z8kc   162m         14Mi
+iot-simulator-778469c454-lmcmt   144m         14Mi
+iot-simulator-778469c454-rlphz   146m         14Mi
+[2026-11-13T18:31:31.2942278-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   147m         14Mi
+iot-simulator-778469c454-7psl6   153m         14Mi
+iot-simulator-778469c454-8cklx   153m         14Mi
+iot-simulator-778469c454-8z8kc   166m         14Mi
+iot-simulator-778469c454-lmcmt   147m         14Mi
+iot-simulator-778469c454-rlphz   161m         14Mi
+[2026-11-13T18:31:41.8672915-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   147m         14Mi
+iot-simulator-778469c454-7psl6   153m         14Mi
+iot-simulator-778469c454-8cklx   153m         14Mi
+iot-simulator-778469c454-8z8kc   166m         14Mi
+iot-simulator-778469c454-lmcmt   147m         14Mi
+iot-simulator-778469c454-rlphz   161m         14Mi
+[2026-11-13T18:31:52.3401677-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   147m         14Mi
+iot-simulator-778469c454-7psl6   153m         14Mi
+iot-simulator-778469c454-8cklx   142m         14Mi
+iot-simulator-778469c454-8z8kc   148m         14Mi
+iot-simulator-778469c454-lmcmt   151m         14Mi
+iot-simulator-778469c454-rlphz   149m         14Mi
+[2026-11-13T18:32:03.1046817-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   147m         14Mi
+iot-simulator-778469c454-7psl6   147m         14Mi
+iot-simulator-778469c454-8cklx   178m         14Mi
+iot-simulator-778469c454-8z8kc   163m         14Mi
+iot-simulator-778469c454-lmcmt   157m         15Mi
+iot-simulator-778469c454-rlphz   166m         14Mi
+[2026-11-13T18:32:13.6051296-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   147m         14Mi
+iot-simulator-778469c454-7psl6   147m         14Mi
+iot-simulator-778469c454-8cklx   178m         14Mi
+iot-simulator-778469c454-8z8kc   163m         14Mi
+iot-simulator-778469c454-lmcmt   157m         15Mi
+iot-simulator-778469c454-rlphz   166m         14Mi
+[2026-11-13T18:32:24.1133126-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   157m         14Mi
+iot-simulator-778469c454-7psl6   145m         14Mi
+iot-simulator-778469c454-8cklx   163m         14Mi
+iot-simulator-778469c454-8z8kc   161m         14Mi
+iot-simulator-778469c454-lmcmt   159m         14Mi
+iot-simulator-778469c454-rlphz   148m         14Mi
+[2026-11-13T18:32:34.8581161-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   163m         15Mi
+iot-simulator-778469c454-7psl6   144m         14Mi
+iot-simulator-778469c454-8cklx   172m         15Mi
+iot-simulator-778469c454-8z8kc   138m         14Mi
+iot-simulator-778469c454-lmcmt   153m         15Mi
+iot-simulator-778469c454-rlphz   162m         14Mi
+[2026-11-13T18:32:45.3695202-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   163m         15Mi
+iot-simulator-778469c454-7psl6   144m         14Mi
+iot-simulator-778469c454-8cklx   172m         15Mi
+iot-simulator-778469c454-8z8kc   138m         14Mi
+iot-simulator-778469c454-lmcmt   153m         15Mi
+iot-simulator-778469c454-rlphz   162m         14Mi
+[2026-11-13T18:32:55.8747101-03:00] kubectl top pods -l app=iot-simulator
+NAME                             CPU(cores)   MEMORY(bytes)
+iot-simulator-778469c454-22w65   166m         15Mi
+iot-simulator-778469c454-7psl6   157m         14Mi
+iot-simulator-778469c454-8cklx   172m         14Mi
+iot-simulator-778469c454-8z8kc   170m         14Mi
+iot-simulator-778469c454-lmcmt   163m         15Mi
+iot-simulator-778469c454-rlphz   167m         15Mi
